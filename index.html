@@ -19,7 +19,7 @@
       <div>
         <a class="nav-link" href="highscore.html">View Highscores</a>
       </div>
-      <div><h5 class="nav-link">Time: 75</h5></div>
+      <div><h5 class="nav-link" id="timer"></h5></div>
     </nav>
 
     <main class="container rounded bg-light">
@@ -35,7 +35,9 @@
       </div>
       <div class="row justify-content-md-center">
         <div class="col-md-6">
-          <button type="button" class="btn btn-primary">Start!</button>
+          <button type="button" class="btn btn-primary" onclick="countdown()">
+            Start!
+          </button>
         </div>
       </div>
     </main>
