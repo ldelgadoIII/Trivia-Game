@@ -1,12 +1,14 @@
 let qCards = document.getElementById("questionCards");
-
 let timerEl = document.getElementById("timer");
+
 let timeLeft = 75;
 timerEl.textContent = "Time: " + timeLeft;
 
+i = 0;
+
 const questionHolder = [
   {
-    question: "Hey this is a question?",
+    question: "This is Question #1?",
     options: {
       a: "Answer",
       b: "Answer",
@@ -16,7 +18,7 @@ const questionHolder = [
     correctAnswer: "a",
   },
   {
-    question: "Hey this is a question?",
+    question: "This is Question #2?",
     options: {
       a: "Answer",
       b: "Answer",
@@ -26,7 +28,7 @@ const questionHolder = [
     correctAnswer: "a",
   },
   {
-    question: "Hey this is a question?",
+    question: "This is Question #3?",
     options: {
       a: "Answer",
       b: "Answer",
@@ -36,7 +38,7 @@ const questionHolder = [
     correctAnswer: "a",
   },
   {
-    question: "Hey this is a question?",
+    question: "This is Question #4?",
     options: {
       a: "Answer",
       b: "Answer",
@@ -59,8 +61,10 @@ function countdown() {
   }, 500);
 }
 
+let display = [];
+
 function displayQuestion() {
-  const display = [];
+  display = [];
 
   questionHolder.forEach((currentEl, index) => {
     const answers = [];
@@ -74,10 +78,11 @@ function displayQuestion() {
     }
     display.push(
       `<div id="questionCards">${currentEl.question}</div>
-        <div id="answers">${answers.join("")}</div>`
+        <ul class="list-group">${answers.join("")}</ul>`
     );
   });
   qCards.innerHTML = display.join("");
+  qCards.innerHTML = display[i];
 }
 
 displayQuestion();
