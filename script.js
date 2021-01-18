@@ -69,15 +69,15 @@ function displayQuestion() {
   questionHolder.forEach((currentEl, index) => {
     const answers = [];
 
-    for (choice in currentEl.options) {
+    for (letter in currentEl.options) {
       answers.push(
         `<button type="button" class="btn btn-primary" id="question ${index}">
-            ${choice}: ${currentEl.options[choice]}
+            ${letter}: ${currentEl.options[letter]}
           </button>`
       );
     }
     display.push(
-      `<div id="questionCards">${currentEl.question}</div>
+      `<div id="questionCards"><h3>${currentEl.question}</h3></div>
         <ul class="list-group">${answers.join("")}</ul>`
     );
   });
