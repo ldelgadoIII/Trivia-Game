@@ -1,4 +1,4 @@
-const qCards = getElementById("questionCards");
+let qCards = document.getElementById("questionCards");
 
 let timerEl = document.getElementById("timer");
 let timeLeft = 75;
@@ -66,11 +66,18 @@ function displayQuestion() {
     const answers = [];
 
     for (choice in currentEl.options) {
-      options.push(
-        <button type="button" class="btn btn-primary" id="question ${index}">
-          ${choice}: ${currentEl.options[choice]}
-        </button>
+      answers.push(
+        `<button type="button" class="btn btn-primary" id="question ${index}">
+            ${choice}: ${currentEl.options[choice]}
+          </button>`
       );
     }
+    display.push(
+      `<div id="questionCards">${currentEl.question}</div>
+        <div id="answers">${answers.join("")}</div>`
+    );
   });
+  qCards.innerHTML = display.join("");
 }
+
+displayQuestion();
