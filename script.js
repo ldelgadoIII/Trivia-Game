@@ -1,10 +1,11 @@
+// DEPENDENCIES ========================
 let qCards = document.getElementById("questionCards");
 let timerEl = document.getElementById("timer");
 
+// STARTING DATA =======================
+let i = 0;
 let timeLeft = 75;
-timerEl.textContent = "Time: " + timeLeft;
-
-i = 0;
+let display = [];
 
 const questionHolder = [
   {
@@ -49,6 +50,21 @@ const questionHolder = [
   },
 ];
 
+// FUNCTIONS ===========================
+function initPage() {
+  // load saved data
+  // display welcome card
+  // set timer
+  timerEl.textContent = "Time: " + timeLeft;
+}
+
+function startGame() {
+  // when start button is pressed
+  // hide welcome card
+  // display first question card
+}
+
+// begin a timer countdown
 function countdown() {
   const timeCrunch = setInterval(() => {
     timerEl.textContent = "Time: " + timeLeft;
@@ -58,11 +74,17 @@ function countdown() {
       timerEl.textContent = "Times Up!";
       clearInterval(timeCrunch);
     }
-  }, 500);
+  }, 1000);
 }
 
-let display = [];
+function questionInteraction() {
+  // when button within the question is clicked
+  // move onto next questions
+  // display whether the question is correct or incorrect
+  // display highscore card
+}
 
+// display the question and answer information from the questionHolder array
 function displayQuestion() {
   display = [];
 
@@ -86,3 +108,23 @@ function displayQuestion() {
 }
 
 displayQuestion();
+
+// display card function
+// display a highscore title
+// form to input name
+// submit form
+// take the user to highscore page
+
+// highscore page
+// display saved highscores
+// a button to play again
+// a button to reset scores
+
+// USER INTERACTIONS ===================
+
+// listen to start button
+// listen for question interactions
+// listen for reset
+
+// INITIALIZE ==========================
+initPage();

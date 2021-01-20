@@ -25,7 +25,8 @@
       <div><h5 class="nav-link" id="timer"></h5></div>
     </nav>
 
-    <main class="container rounded bg-light">
+    <!-- WELCOME CARD Begins-->
+    <section class="container rounded bg-light">
       <div class="row justify-content-md-center">
         <div class="col-md-8">
           <h2>Welcome to the quiz!</h2>
@@ -38,24 +39,45 @@
       </div>
       <div class="row justify-content-md-center">
         <div class="col-md-6">
-          <button type="button" class="btn btn-primary" onclick="countdown()">
+          <button
+            type="button"
+            class="btn btn-primary"
+            id="start-btn"
+            onclick="countdown()"
+          >
             Start!
           </button>
         </div>
       </div>
-    </main>
+    </section>
 
-    <div class="container rounded bg-light">
+    <!-- WELCOME CARD Ends -->
+
+    <!-- REPLACEABLE QUESTION CARD Begins -->
+    <div class="container rounded bg-light" style="display: none">
       <div class="row justify-content-md-center">
         <div class="col-md-6">
           <div class="question" id="questionCards">
-            This Text Will Be Replaced
+            This Text Will Be Replaced With Questions
           </div>
-          <div id="answers"></div>
-          <div id="result"></div>
         </div>
       </div>
     </div>
+
+    <!-- REPLACEABLE QUESTION CARD Ends -->
+
+    <!-- HIGHSCORE INPUT CARD Begins -->
+    <div class="container rounded bg-light" style="display: none">
+      <div class="row justify-content-md-center">
+        <div class="col-md-6">
+          <div class="question" id="highscoreList">
+            This Text Will Be Replaced With A Highscore List
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HIGHSCORE INPUT CARD Ends -->
 
     <script src="script.js"></script>
     <script
