@@ -1,6 +1,8 @@
 // DEPENDENCIES ========================
+let welcomeCard = document.getElementById("welcome-card");
 let qCards = document.getElementById("questionCards");
 let timerEl = document.getElementById("timer");
+let startBtn = document.getElementById("start-btn");
 
 // STARTING DATA =======================
 let i = 0;
@@ -54,14 +56,18 @@ const questionHolder = [
 function initPage() {
   // load saved data
   // display welcome card
+  welcomeCard.setAttribute("style", "display: show");
   // set timer
   timerEl.textContent = "Time: " + timeLeft;
 }
 
+// when start button is pressed
 function startGame() {
-  // when start button is pressed
   // hide welcome card
+  welcomeCard.setAttribute("style", "display: none");
   // display first question card
+  qCards.setAttribute("style", "display: show");
+  displayQuestion();
 }
 
 // begin a timer countdown
@@ -75,13 +81,6 @@ function countdown() {
       clearInterval(timeCrunch);
     }
   }, 1000);
-}
-
-function questionInteraction() {
-  // when button within the question is clicked
-  // move onto next questions
-  // display whether the question is correct or incorrect
-  // display highscore card
 }
 
 // display the question and answer information from the questionHolder array
@@ -107,7 +106,15 @@ function displayQuestion() {
   qCards.innerHTML = display[i];
 }
 
-displayQuestion();
+function questionInteraction() {
+  // when button within the question is clicked
+  i++;
+  // move onto next questions
+  displayQuestion();
+  // display whether the question is correct or incorrect
+  // display highscore card
+  // end timer
+}
 
 // display card function
 // display a highscore title
@@ -123,7 +130,10 @@ displayQuestion();
 // USER INTERACTIONS ===================
 
 // listen to start button
+startBtn.addEventListener("click", countdown);
+startBtn.addEventListener("click", startGame);
 // listen for question interactions
+qCards.addEventListener("click", questionInteraction);
 // listen for reset
 
 // INITIALIZE ==========================

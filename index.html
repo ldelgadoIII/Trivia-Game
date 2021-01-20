@@ -26,7 +26,7 @@
     </nav>
 
     <!-- WELCOME CARD Begins-->
-    <section class="container rounded bg-light">
+    <section class="container rounded bg-light" id="welcome-card">
       <div class="row justify-content-md-center">
         <div class="col-md-8">
           <h2>Welcome to the quiz!</h2>
@@ -54,12 +54,14 @@
     <!-- WELCOME CARD Ends -->
 
     <!-- REPLACEABLE QUESTION CARD Begins -->
-    <div class="container rounded bg-light" style="display: none">
+    <div
+      class="container rounded bg-light"
+      id="questionCards"
+      style="display: none"
+    >
       <div class="row justify-content-md-center">
         <div class="col-md-6">
-          <div class="question" id="questionCards">
-            This Text Will Be Replaced With Questions
-          </div>
+          <div class="question">This Text Will Be Replaced With Questions</div>
         </div>
       </div>
     </div>
