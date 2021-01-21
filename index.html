@@ -69,12 +69,37 @@
     <!-- REPLACEABLE QUESTION CARD Ends -->
 
     <!-- HIGHSCORE INPUT CARD Begins -->
-    <div class="container rounded bg-light" style="display: none">
+    <div
+      class="container rounded bg-light"
+      id="highscore-card"
+      style="display: none"
+    >
       <div class="row justify-content-md-center">
         <div class="col-md-6">
           <div class="question" id="highscoreList">
-            This Text Will Be Replaced With A Highscore List
+            <h2>Game over!</h2>
           </div>
+          <div class="row justify-content-md-center">
+            <div class="col-md-6">
+              <p>"Please enter you name below to save your score!"</p>
+            </div>
+          </div>
+          <!-- form to input name -->
+          <form class="form-inline">
+            <input
+              class="form-control"
+              id="highscoreInput"
+              placeholder="Name"
+            />
+            <!-- submit form -->
+            <button
+              type="submit"
+              id="highscoreSubmit"
+              class="btn btn-primary mb-2"
+            >
+              Submit
+            </button>
+          </form>
         </div>
       </div>
     </div>

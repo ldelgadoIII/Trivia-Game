@@ -1,13 +1,18 @@
 // DEPENDENCIES ========================
 let welcomeCard = document.getElementById("welcome-card");
+let highscoreCard = document.getElementById("highscore-card");
 let qCards = document.getElementById("questionCards");
 let timerEl = document.getElementById("timer");
 let startBtn = document.getElementById("start-btn");
+let highscoreInput = document.getElementById("highscoreInput");
+let highscoreSubmit = document.getElementById("highscoreSubmit");
+let optionsBtn = document.getElementsByClassName("options");
 
 // STARTING DATA =======================
 let i = 0;
 let timeLeft = 75;
 let display = [];
+let highscoreChart = [];
 
 const questionHolder = [
   {
@@ -55,6 +60,9 @@ const questionHolder = [
 // FUNCTIONS ===========================
 function initPage() {
   // load saved data
+  if (localStorage.getItem("High-Name")) {
+    highscoreChart = JSON.parse(localStorage.getItem("High-Name"));
+  }
   // display welcome card
   welcomeCard.setAttribute("style", "display: show");
   // set timer
@@ -92,7 +100,7 @@ function displayQuestion() {
 
     for (letter in currentEl.options) {
       answers.push(
-        `<button type="button" class="btn btn-primary" id="question ${index}">
+        `<button type="button" class="btn btn-primary options" id="question ${index}">
             ${letter}: ${currentEl.options[letter]}
           </button>`
       );
@@ -104,28 +112,53 @@ function displayQuestion() {
   });
   qCards.innerHTML = display.join("");
   qCards.innerHTML = display[i];
+
+  for (let p = 0; p < optionsBtn.length; p++) {
+    optionsBtn[p].addEventListener("click", function () {
+      let currentVal = this.innerText;
+
+      console.log(currentVal);
+      console.log("clicked button");
+    });
+  }
 }
 
 function questionInteraction() {
   // when button within the question is clicked
   i++;
-  // move onto next questions
-  displayQuestion();
-  // display whether the question is correct or incorrect
   // display highscore card
+  if (i >= questionHolder.length) {
+    highscoreCard.setAttribute("style", "display: show");
+    qCards.setAttribute("style", "display: none");
+  } else {
+    // move onto next questions
+    displayQuestion();
+  }
+  // grab value of what was clicked
+  // display whether the question is correct or incorrect
   // end timer
 }
 
-// display card function
-// display a highscore title
-// form to input name
-// submit form
-// take the user to highscore page
+highscoreSubmit.addEventListener("click", (event) => {
+  event.preventDefault();
 
+  let newScore = {
+    name: highscoreInput.value,
+    score: timeLeft,
+  };
+  highscoreChart.push(newScore);
+  localStorage.setItem("High-Name", JSON.stringify(highscoreChart));
+
+  // display highscore list
+  for (let j = 0; j < highscoreChart.length; j++) {
+    console.log(highscoreChart[j].name);
+  }
+});
+
+// take the user to highscore page
 // highscore page
 // display saved highscores
 // a button to play again
-// a button to reset scores
 
 // USER INTERACTIONS ===================
 
@@ -135,6 +168,12 @@ startBtn.addEventListener("click", startGame);
 // listen for question interactions
 qCards.addEventListener("click", questionInteraction);
 // listen for reset
+// a button to reset scores
+function clearHighscore() {
+  localStorage.removeItem("High-Name");
+}
+
+// listen for options clicked
 
 // INITIALIZE ==========================
 initPage();
