@@ -72,6 +72,7 @@ function initPage() {
   welcomeCard.setAttribute("style", "display: show");
   // set timer
   timerEl.textContent = "Time: " + timeLeft;
+  renderHighscores();
 }
 
 // when start button is pressed
