@@ -10,7 +10,8 @@ let optionsBtn = document.getElementsByClassName("options");
 let resetBtn = document.getElementById("reset-btn");
 let answerCard = document.getElementById("answerCheckCard");
 let answerDescrip = document.getElementById("answerCheck");
-// let playAgain = document.getAnimations("playAgain-btn");
+let highscoreItem = document.getElementById("highscoreList");
+let playAgain = document.getAnimations("playAgain-btn");
 
 // STARTING DATA =======================
 let i = 0;
@@ -157,6 +158,16 @@ function questionInteraction() {
   // end timer
 }
 
+function renderHighscores() {
+  highscoreItem.textContent = "";
+
+  highscoreChart.forEach(function (element) {
+    let listItem = document.createElement("li");
+    listItem.textContent = "Name: " + element.name + "Score: " + element.score;
+    highscoreItem.appendChild(listItem);
+  });
+}
+
 highscoreSubmit.addEventListener("click", (event) => {
   event.preventDefault();
 
@@ -173,11 +184,6 @@ highscoreSubmit.addEventListener("click", (event) => {
   }
 });
 
-// take the user to highscore page
-// highscore page
-// display saved highscores
-// a button to play again
-
 // USER INTERACTIONS ===================
 
 // listen to start button
@@ -187,10 +193,14 @@ startBtn.addEventListener("click", startGame);
 qCards.addEventListener("click", questionInteraction);
 // listen for reset to reset scores
 // resetBtn.addEventListener("click", () => {
-//   localStorage.removeItem("High-Name");
+//   highscoreChart.forEach(function (element, index) {
+//     element.splice(index);
+//   });
 // });
 
-// listen for options clicked
+// resetBtn.addEventListener("click", () => {
+//   localStorage.removeItem("High-Name");
+// });
 
 // INITIALIZE ==========================
 initPage();
