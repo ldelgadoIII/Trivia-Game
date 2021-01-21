@@ -7,6 +7,7 @@ let startBtn = document.getElementById("start-btn");
 let highscoreInput = document.getElementById("highscoreInput");
 let highscoreSubmit = document.getElementById("highscoreSubmit");
 let optionsBtn = document.getElementsByClassName("options");
+let resetBtn = document.getElementById("reset-btn");
 
 // STARTING DATA =======================
 let i = 0;
@@ -16,44 +17,44 @@ let highscoreChart = [];
 
 const questionHolder = [
   {
-    question: "This is Question #1?",
+    question: "Commonly used data types DO NOT include",
     options: {
-      a: "Answer",
-      b: "Answer",
-      c: "Answer",
-      d: "Answer",
+      a: "Numbers",
+      b: "Booleans",
+      c: "Alerts",
+      d: "Strings",
     },
-    correctAnswer: "a",
+    correctAnswer: "c: Alerts",
   },
   {
-    question: "This is Question #2?",
+    question: "A condition in an if/else statement is enclosed with?",
     options: {
-      a: "Answer",
-      b: "Answer",
-      c: "Answer",
-      d: "Answer",
+      a: "Curly Braces",
+      b: "Parentheses",
+      c: "Quotes",
+      d: "Commas",
     },
-    correctAnswer: "a",
+    correctAnswer: "b: Parentheses",
   },
   {
-    question: "This is Question #3?",
+    question: "Arrays in Javascript can be used to store?",
     options: {
-      a: "Answer",
-      b: "Answer",
-      c: "Answer",
-      d: "Answer",
+      a: "Numbers",
+      b: "Strings",
+      c: "Objects",
+      d: "All of the above",
     },
-    correctAnswer: "a",
+    correctAnswer: "d: All of the above",
   },
   {
-    question: "This is Question #4?",
+    question: "Who lives in a pineapple under the sea?",
     options: {
-      a: "Answer",
-      b: "Answer",
-      c: "Answer",
-      d: "Answer",
+      a: "Mr. Crabs",
+      b: "Plankton",
+      c: "Spongebob",
+      d: "This is Patrick",
     },
-    correctAnswer: "a",
+    correctAnswer: "c: Spongebob",
   },
 ];
 
@@ -167,11 +168,10 @@ startBtn.addEventListener("click", countdown);
 startBtn.addEventListener("click", startGame);
 // listen for question interactions
 qCards.addEventListener("click", questionInteraction);
-// listen for reset
-// a button to reset scores
-function clearHighscore() {
-  localStorage.removeItem("High-Name");
-}
+// listen for reset to reset scores
+// resetBtn.addEventListener("click", () => {
+//   localStorage.removeItem("High-Name");
+// });
 
 // listen for options clicked
 
