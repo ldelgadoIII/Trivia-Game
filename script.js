@@ -10,6 +10,7 @@ let optionsBtn = document.getElementsByClassName("options");
 let resetBtn = document.getElementById("reset-btn");
 let answerCard = document.getElementById("answerCheckCard");
 let answerDescrip = document.getElementById("answerCheck");
+// let playAgain = document.getAnimations("playAgain-btn");
 
 // STARTING DATA =======================
 let i = 0;
