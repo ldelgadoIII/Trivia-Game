@@ -72,7 +72,6 @@ function initPage() {
   welcomeCard.setAttribute("style", "display: show");
   // set timer
   timerEl.textContent = "Time: " + timeLeft;
-  renderHighscores();
 }
 
 // when start button is pressed
@@ -159,16 +158,6 @@ function questionInteraction() {
   // end timer
 }
 
-function renderHighscores() {
-  highscoreItem.textContent = "";
-
-  highscoreChart.forEach(function (element) {
-    let listItem = document.createElement("li");
-    listItem.textContent = "Name: " + element.name + "Score: " + element.score;
-    highscoreItem.appendChild(listItem);
-  });
-}
-
 highscoreSubmit.addEventListener("click", (event) => {
   event.preventDefault();
 
@@ -192,16 +181,6 @@ startBtn.addEventListener("click", countdown);
 startBtn.addEventListener("click", startGame);
 // listen for question interactions
 qCards.addEventListener("click", questionInteraction);
-// listen for reset to reset scores
-// resetBtn.addEventListener("click", () => {
-//   highscoreChart.forEach(function (element, index) {
-//     element.splice(index);
-//   });
-// });
-
-// resetBtn.addEventListener("click", () => {
-//   localStorage.removeItem("High-Name");
-// });
 
 // INITIALIZE ==========================
 initPage();
