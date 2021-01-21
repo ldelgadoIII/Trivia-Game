@@ -8,6 +8,8 @@ let highscoreInput = document.getElementById("highscoreInput");
 let highscoreSubmit = document.getElementById("highscoreSubmit");
 let optionsBtn = document.getElementsByClassName("options");
 let resetBtn = document.getElementById("reset-btn");
+let answerCard = document.getElementById("answerCheckCard");
+let answerDescrip = document.getElementById("answerCheck");
 
 // STARTING DATA =======================
 let i = 0;
@@ -85,7 +87,7 @@ function countdown() {
     timerEl.textContent = "Time: " + timeLeft;
     timeLeft--;
 
-    if (timeLeft === 0) {
+    if (timeLeft === 0 || i === questionHolder.length) {
       timerEl.textContent = "Times Up!";
       clearInterval(timeCrunch);
     }
@@ -114,12 +116,26 @@ function displayQuestion() {
   qCards.innerHTML = display.join("");
   qCards.innerHTML = display[i];
 
+  // check's the value of each button clicked
   for (let p = 0; p < optionsBtn.length; p++) {
     optionsBtn[p].addEventListener("click", function () {
       let currentVal = this.innerText;
 
-      console.log(currentVal);
-      console.log("clicked button");
+      // condition to display correct or incorrect answer and to penalize incorrect answers
+      if (currentVal === questionHolder[i].correctAnswer) {
+        answerCard.setAttribute("style", "display: show");
+        answerDescrip.innerHTML = "Correct!";
+        setTimeout(function () {
+          answerCard.setAttribute("style", "display: none");
+        }, 1000);
+      } else {
+        answerCard.setAttribute("style", "display: show");
+        answerDescrip.innerHTML = "Incorrect!";
+        timeLeft -= 10;
+        setTimeout(function () {
+          answerCard.setAttribute("style", "display: none");
+        }, 1000);
+      }
     });
   }
 }
